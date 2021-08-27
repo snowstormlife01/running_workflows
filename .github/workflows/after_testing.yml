@@ -1,0 +1,21 @@
+name: post testing
+on: 
+  workflow_run:
+    workflows: ["testing"]
+    types:
+      - completed
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow.run.conclusion == 'success' }}
+    steps:
+    - name: main success 
+      run: echo "hello from main success"
+
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow.run.conclusion == 'failure' }}
+    steps:
+    - name: main failure
+      run: echo "hello from main failure"
