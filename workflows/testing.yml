@@ -7,6 +7,7 @@ on:
     branches: [ none ]
 
   workflow_dispatch:
+    branches: [ main, post_testing ]
 
 jobs:
   build:
