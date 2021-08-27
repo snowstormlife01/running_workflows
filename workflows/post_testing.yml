@@ -1,0 +1,6 @@
+name: post testing
+on: 
+  workflow_run:
+    workflows: ["testing"]
+    types:
+      - completed
