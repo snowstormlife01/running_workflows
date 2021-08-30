@@ -16,6 +16,22 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  hello-there: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: hello_world
+      id: extract_branch
+      run: | 
+          echo 'hello world from job after_testing'
+          echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
+          
+    - name: which_branch
+      run: |
+        echo I am running in branch . . . 
+        echo ${{ steps.extract_branch.outputs.branch }}
+
   build:
     runs-on: ubuntu-latest
 
