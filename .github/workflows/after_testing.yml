@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: hello_world
+      id: extract_branch
       run: | 
           echo 'hello world from job after_testing'
           echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
-          id: extract_branch
           
     - name: which_branch
       run: |
