@@ -26,7 +26,7 @@ jobs:
     steps:
       - run: | 
           echo 'hello'
-          exit(1)
+          ${{ env.WORKFLOW_CONCLUSION }} = failure
       
       
 #      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
