@@ -14,8 +14,15 @@ jobs:
     steps:
     - name: hello world
       run: | 
-          echo 'hello world from job after_testing'
+          echo 'hello world from job after_testing running from branch '
           echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
+          id: extract_branch
+    - name: which_branch
+      run: |
+        echo I am running in branch . . . 
+        echo ${{ steps.extract_branch.outputs.branch }}
+      
   on-success:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
