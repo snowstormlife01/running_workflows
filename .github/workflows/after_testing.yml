@@ -13,17 +13,17 @@ jobs:
     - name: hello world
       run: | 
           echo 'hello world from job after_testing'
-          echo 'status is... ' ${{ github.event.workflow.run.conclusion }} 
+          echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
   on-success:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow.run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
     - name: main success 
       run: echo "hello from main success"
 
   on-failure:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow.run.conclusion == 'failure' }}
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
     - name: main failure
       run: echo "hello from main failure"
