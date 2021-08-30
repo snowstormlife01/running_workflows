@@ -6,6 +6,13 @@ on:
       - completed
 
 jobs:
+
+  hello-there: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: hello world
+      run: echo 'hello world from hello-there'
+      
   on-success:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow.run.conclusion == 'success' }}
