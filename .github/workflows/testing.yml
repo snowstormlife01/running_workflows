@@ -23,7 +23,7 @@ jobs:
     - name: hello_world
       id: extract_branch
       run: | 
-          echo 'hello world from job after_testing'
+          echo 'hello world from testing.yml'
           echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
           
