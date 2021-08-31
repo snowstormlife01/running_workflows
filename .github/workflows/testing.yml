@@ -1,9 +1,7 @@
-# This is a basic workflow to help you get started with Actions
-
 name: testing
 
   
-# Controls when the workflow will run 
+# Controls when the workflow will run
 on:
 
 # Triggers the workflow on push or pull request events but only for the main branch
@@ -32,14 +30,13 @@ jobs:
       run: |
         echo I am running in branch . . . 
         echo ${{ steps.extract_branch.outputs.branch }}
-
   build:
     runs-on: ubuntu-latest
 
     steps:
       - run: | 
           echo 'hello from testing.yml'
-          ${{ env.WORKFLOW_CONCLUSION }} = success
-          echo 'workflow conclusion is... ' ${{ env.WORKFLOW_CONCLUSION }}
+          ${{ env.WORKFLOW_CONCLUSION }} = failure
+          echo ' workflow conclusion is: ' ${{ env.WORKFLOW_CONCLUSION }}
       
       
