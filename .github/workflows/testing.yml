@@ -39,12 +39,7 @@ jobs:
     steps:
       - run: | 
           echo 'hello from testing.yml'
-          ${{ env.WORKFLOW_CONCLUSION }} = failure
+          ${{ env.WORKFLOW_CONCLUSION }} = success
           echo ' workflow conclusion is: ' ${{ env.WORKFLOW_CONCLUSION }}
       
       
-#      - uses: actions/checkout@v2
-#        with: 
-#          status: failure     # fail this run.
-
-  
