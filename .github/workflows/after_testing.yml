@@ -2,8 +2,11 @@ name: after_testing
 on: 
   workflow_run:
     workflows: ["testing"]
+    branches: [ main, snowstormlife01-patch-2 ]
     types:
       - completed
+
+# this is in a feature branch 
 
 jobs:
 
@@ -13,15 +16,10 @@ jobs:
     - name: hello_world
       id: extract_branch
       run: | 
-          echo 'hello world from job after_testing'
+          echo 'hello world from job after_testing running from branch '
           echo 'status is... ' ${{ github.event.workflow_run.conclusion }} 
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
-          
-    - name: which_branch
-      run: |
-        echo I am running in branch . . . 
-        echo ${{ steps.extract_branch.outputs.branch }}
-
+          id: extract_branch
   on-success:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
