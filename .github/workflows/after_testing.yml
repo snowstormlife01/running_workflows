@@ -5,7 +5,7 @@ on:
      
   workflow_run:
     workflows: ["testing"]
-    branches: [ main, snowstormlife01-patch-2 ]
+    branches: [ main, snowstormlife01-patch-2, joels-branch ]
     types:
       - completed
 
