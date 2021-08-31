@@ -40,6 +40,6 @@ jobs:
       - run: | 
           echo 'hello from testing.yml'
           ${{ env.WORKFLOW_CONCLUSION }} = success
-          echo ' workflow conclusion is: ' ${{ env.WORKFLOW_CONCLUSION }}
+          echo 'workflow conclusion is... ' ${{ env.WORKFLOW_CONCLUSION }}
       
       
