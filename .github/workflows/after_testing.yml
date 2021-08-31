@@ -21,6 +21,7 @@ jobs:
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})" 
          
   on-success:
+    needs: hello-there
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -28,6 +29,7 @@ jobs:
       run: echo "hello from main success"
 
   on-failure:
+    needs: hello-there
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
