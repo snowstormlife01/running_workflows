@@ -1,5 +1,8 @@
 name: after_testing
 on: 
+  pull_request:
+    branches: main 
+     
   workflow_run:
     workflows: ["testing"]
     branches: [ main, snowstormlife01-patch-2 ]
