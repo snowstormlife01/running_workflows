@@ -31,6 +31,8 @@ jobs:
         echo I am running in branch . . . 
         echo ${{ steps.extract_branch.outputs.branch }}
   build:
+    needs: hello-there
+    
     runs-on: ubuntu-latest
 
     steps:
